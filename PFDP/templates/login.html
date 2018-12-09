@@ -1,0 +1,17 @@
+
+
+
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Login</h1>
+    <form method = "post">
+    <label>username:</label>
+    <input name="username" type="text">
+    <label>password:</label>
+    <input name= "password" type="text">
+    <input type="submit">
+    </form>
+    <a href="/register">Não possui uma conta? Clique aqui!</a>
+
+{% endblock %}

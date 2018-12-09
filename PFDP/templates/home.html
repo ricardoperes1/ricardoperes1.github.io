@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <h1>Bem vindo ao seu Pylist!</h1>
+    <h2>Adicione as suas tarefas aqui</h2>
+    <form action="/" method="POST">
+    <input type="text" name="titulo" placeholder="Título">
+    <input type="date" name="data" placeholder="data">
+    <input type="submit" value="Criar">
+    </form>
+    <h2>Pendente:</2>
+    <ol>
+    {% for task in tasks %}
+    {% if not task['feito'] %}
+    <li>
+    <h2>{{ task['titulo'] }}</h3
+    <p>{{ task['data'] }}</p>
+    <form action="/" method="POST">
+    <input type="hidden" name="id" value="{{ task['id'] }}">
+    <input type="hidden" name="feito" value="True">
+    <input type="submit" value="&#10003;"></form>
+    </form>
+    </li>
+    {% endif %}
+    {% endfor %}
+    </ol>
+    <h2>Concluido:</h2>
+    <ol class="concluidas">
+    {% for task in tasks %}
+    {% if task['feito'] %}
+    <li>
+    <h2>{{ task['titulo'] }}</h3>
+    <p>{{ task['data'] }}</p>
+    <form action="/" method="POST">
+    <input type="hidden" name="id" value="{{ task['id'] }}">
+    <input type="hidden" name="feito" value="False">
+    <input type="submit" value="&#10003;"></form>
+    </form>
+    </li>
+    {% endif %}
+    {% endfor %}
+    </ol>
+{% endblock %}
+
+
+
+
+
+           
+            
+         
+
+
+
+
+
+
+
